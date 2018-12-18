@@ -1,4 +1,4 @@
-﻿using Microsoft.ML;
+using Microsoft.ML;
 using Microsoft.ML.Runtime.Data;
 using Microsoft.ML.StaticPipe;
 using Microsoft.ML.Trainers;
@@ -14,15 +14,15 @@ namespace SimpleRegression
             var context = new MLContext();
             var reader = TextLoader.CreateReader(context, ctx => (
                 YearsExperience: ctx.LoadFloat(0),
-                Target: ctx.LoadFloat(1)
+                Salary: ctx.LoadFloat(1)
             ), hasHeader: true, separator: ',');
 
             var data = reader.Read(new MultiFileSource("SalaryData.csv"));
 
             var pipeline = reader.MakeNewEstimator()
                 .Append(r => (
-                    r.Target,
-                    Prediction: context.Regression.Trainers.Sdca(label: r.Target, features: r.YearsExperience.AsVector())
+                    r.Salary,
+                    Prediction: context.Regression.Trainers.Sdca(label: r.Salary, features: r.YearsExperience.AsVector())
                 ));
 
             var model = pipeline.Fit(data).AsDynamic;
