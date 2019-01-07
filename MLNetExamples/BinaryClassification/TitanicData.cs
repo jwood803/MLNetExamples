@@ -11,22 +11,22 @@ namespace BinaryClassification
         public bool HasSurvived;
 
         [Column("2")]
-        public float PClass;
+        public float Pclass;
 
         [Column("3")]
         public string Name;
 
         [Column("4")]
-        public string Gender;
+        public string Sex;
 
         [Column("5")]
         public float Age;
 
         [Column("6")]
-        public float NumOfSiblingsOrSpouses;
+        public float SibSp;
 
         [Column("7")]
-        public float NumOfParentOrChildAboard;
+        public float Parch;
 
         [Column("8")]
         public string Ticket;

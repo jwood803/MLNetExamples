@@ -7,7 +7,9 @@ namespace BinaryClassification
 {
     public class TitanicPrediction
     {
-        [ColumnName("Score")]
-        public bool WillSurvive;
+        [ColumnName("PredictedLabel")]
+        public bool Prediction;
+
+        public float Score;
     }
 }
