@@ -37,7 +37,7 @@ namespace DatabaseData
 
             var pipeline = context.Transforms.Concatenate("Features", "YearsExperience")
                 .Append(context.Transforms.CopyColumns(("Label", "Salary")))
-                .Append(context.Regression.Trainers.FastTree(labelColumn: "Salary", featureColumn: "Features"));
+                .Append(context.Regression.Trainers.FastTree());
 
             var model = pipeline.Fit(trainData);
 
