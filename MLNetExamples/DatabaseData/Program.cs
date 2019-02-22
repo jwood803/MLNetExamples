@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 
 namespace DatabaseData
 {
@@ -116,34 +117,14 @@ namespace DatabaseData
 
         private static IEnumerable<SalaryData> ReadFromFile(string filePath)
         {
-            var data = new List<SalaryData>();
-            var reader = File.OpenRead(filePath);
-
-            var isHeader = true;
-            var line = String.Empty;
-
-            using (var streamReader = new StreamReader(reader))
-            {
-                while (!streamReader.EndOfStream)
+            var data = File.ReadAllLines(filePath)
+                .Skip(1)
+                .Select(l => l.Split(','))
+                .Select(i => new SalaryData
                 {
-                    if (isHeader)
-                    {
-                        line = streamReader.ReadLine();
-                        isHeader = false;
-                    }
-
-                    line = streamReader.ReadLine();
-                    var items = line.Split(',');
-
-                    var salary = new SalaryData
-                    {
-                        YearsExperience = float.Parse(items[0]),
-                        Salary = float.Parse(items[1])
-                    };
-
-                    data.Add(salary);
-                }
-            }
+                    YearsExperience = float.Parse(i[0]),
+                    Salary = float.Parse(i[1])
+                });
 
             return data;
         }

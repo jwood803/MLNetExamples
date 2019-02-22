@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookRecommendations", "Book
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedClustering", "SeedClustering\SeedClustering.csproj", "{70517260-1CC8-409A-A726-BB9D28D8BF5D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseData", "DatabaseData\DatabaseData.csproj", "{1275E343-EBAC-486F-A049-290ADAFA354C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{70517260-1CC8-409A-A726-BB9D28D8BF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70517260-1CC8-409A-A726-BB9D28D8BF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70517260-1CC8-409A-A726-BB9D28D8BF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1275E343-EBAC-486F-A049-290ADAFA354C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1275E343-EBAC-486F-A049-290ADAFA354C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1275E343-EBAC-486F-A049-290ADAFA354C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1275E343-EBAC-486F-A049-290ADAFA354C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
