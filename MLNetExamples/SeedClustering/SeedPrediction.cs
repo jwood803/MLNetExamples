@@ -1,7 +1,4 @@
-﻿using Microsoft.ML.Runtime.Api;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.ML.Data;
 
 namespace SeedClustering
 {
