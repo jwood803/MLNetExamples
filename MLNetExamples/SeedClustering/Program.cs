@@ -1,5 +1,6 @@
-﻿using Microsoft.ML;
-using Microsoft.ML.Runtime.Data;
+﻿using Microsoft.Data.DataView;
+using Microsoft.ML;
+using Microsoft.ML.Data;
 using System;
 
 namespace SeedClustering
@@ -10,41 +11,40 @@ namespace SeedClustering
         {
             var dataLocation = "./Seed_Data.csv";
 
-            var context = new MLContext(seed: 42);
+            var context = new MLContext();
 
-            var textLoader = context.Data.TextReader(new TextLoader.Arguments
+            var textLoader = context.Data.CreateTextLoader(new[]
             {
-                Separator = ",",
-                HasHeader = true,
-                Column = new[]
-                {
-                    new TextLoader.Column("A", DataKind.R4, 0),
-                    new TextLoader.Column("P", DataKind.R4, 1),
-                    new TextLoader.Column("C", DataKind.R4, 2),
-                    new TextLoader.Column("LK", DataKind.R4, 3),
-                    new TextLoader.Column("WK", DataKind.R4, 4),
-                    new TextLoader.Column("A_Coef", DataKind.R4, 5),
-                    new TextLoader.Column("LKG", DataKind.R4, 6),
-                    new TextLoader.Column("Label", DataKind.R4, 7)
-                }
-            });
+                new TextLoader.Column("A", DataKind.Single, 0),
+                new TextLoader.Column("P", DataKind.Single, 1),
+                new TextLoader.Column("C", DataKind.Single, 2),
+                new TextLoader.Column("LK", DataKind.Single, 3),
+                new TextLoader.Column("WK", DataKind.Single, 4),
+                new TextLoader.Column("A_Coef", DataKind.Single, 5),
+                new TextLoader.Column("LKG", DataKind.Single, 6),
+                new TextLoader.Column("Label", DataKind.Single, 7)
+            },
+            hasHeader: true,
+            separatorChar: ',');
 
-            IDataView data = textLoader.Read(dataLocation);
+            IDataView data = textLoader.Load(dataLocation);
 
-            var (trainData, testData) = context.Clustering.TrainTestSplit(data, testFraction: 0.2);
+            var trainTestData = context.Clustering.TrainTestSplit(data, testFraction: 0.2);
 
             var pipeline = context.Transforms.Concatenate("Features", "A", "P", "C", "LK", "WK", "A_Coef", "LKG")
-                .Append(context.Clustering.Trainers.KMeans(features: "Features", clustersCount: 3));
+                .Append(context.Clustering.Trainers.KMeans(featureColumnName: "Features", clustersCount: 3));
 
-            var model = pipeline.Fit(trainData);
+            var preview = trainTestData.TrainSet.Preview();
 
-            var predictions = model.Transform(testData);
+            var model = pipeline.Fit(trainTestData.TrainSet);
+
+            var predictions = model.Transform(trainTestData.TestSet);
 
             var metrics = context.Clustering.Evaluate(predictions, score: "Score", features: "Features");
 
             Console.WriteLine($"Average minimum score: {metrics.AvgMinScore}");
 
-            var predictionFunc = model.MakePredictionFunction<SeedData, SeedPrediction>(context);
+            var predictionFunc = model.CreatePredictionEngine<SeedData, SeedPrediction>(context);
 
             var prediction = predictionFunc.Predict(new SeedData
             {
@@ -58,6 +58,7 @@ namespace SeedClustering
             });
 
             Console.WriteLine($"Prediction - {prediction.SelectedClusterId}");
+            Console.ReadLine();
         }
     }
 }
