@@ -1,11 +1,10 @@
-﻿using Microsoft.ML.Data;
-
-namespace EntityFrameworkData
+﻿namespace EntityFrameworkData
 {
     public class SalaryData
     {
-        public float YearsExperience;
+        public int SalaryDataId { get; set; }
+        public float YearsExperience { get; set; }
 
-        public float Salary;
+        public float Salary { get; set; }
     }
 }
