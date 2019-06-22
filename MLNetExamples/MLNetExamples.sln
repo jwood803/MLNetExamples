@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkData", "Enti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onnx", "Onnx\Onnx.csproj", "{3AC0137D-061C-497A-8FEB-4C5E087EC717}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoML", "AutoML\AutoML.csproj", "{29CCE02C-491E-4178-AC99-0AD290CCD0F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3AC0137D-061C-497A-8FEB-4C5E087EC717}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AC0137D-061C-497A-8FEB-4C5E087EC717}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AC0137D-061C-497A-8FEB-4C5E087EC717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29CCE02C-491E-4178-AC99-0AD290CCD0F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29CCE02C-491E-4178-AC99-0AD290CCD0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29CCE02C-491E-4178-AC99-0AD290CCD0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29CCE02C-491E-4178-AC99-0AD290CCD0F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
