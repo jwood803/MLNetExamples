@@ -1,0 +1,3 @@
+{
+  "connectionString": "Server=tcp:mlnetserver.database.windows.net,1433;Initial Catalog=salarydb;Persist Security Info=False;User ID=mlnetadmin;Password=Password_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+}
