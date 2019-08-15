@@ -2,9 +2,9 @@
 
 namespace AzureFunction
 {
-    public class SalaryPrediction
+    public class HousingPrediction
     {
         [ColumnName("Score")]
-        public float PredictedSalary { get; set; }
+        public float PredictedPrice { get; set; }
     }
 }

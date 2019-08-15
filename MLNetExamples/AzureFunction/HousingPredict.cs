@@ -11,16 +11,16 @@ using Microsoft.Extensions.ML;
 
 namespace AzureFunction
 {
-    public class SalaryPredict
+    public class HousingPredict
     {
-        private readonly PredictionEnginePool<SalaryData, SalaryPrediction> _predictionEnginePool;
+        private readonly PredictionEnginePool<HousingData, HousingPrediction> _predictionEnginePool;
 
-        public SalaryPredict(PredictionEnginePool<SalaryData, SalaryPrediction> predictionEnginePool)
+        public HousingPredict(PredictionEnginePool<HousingData, HousingPrediction> predictionEnginePool)
         {
             _predictionEnginePool = predictionEnginePool;
         }
 
-        [FunctionName("SalaryPredict")]
+        [FunctionName("HousingPredict")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -28,9 +28,9 @@ namespace AzureFunction
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var salaryData = JsonConvert.DeserializeObject<SalaryData>(requestBody);
+            var housingData = JsonConvert.DeserializeObject<HousingData>(requestBody);
 
-            var prediction = _predictionEnginePool.Predict(salaryData);
+            var prediction = _predictionEnginePool.Predict(housingData);
 
             return new OkObjectResult(prediction);
         }
