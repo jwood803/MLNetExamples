@@ -1,11 +1,8 @@
 ﻿using AzureFunction;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Hosting;
 using Microsoft.Extensions.ML;
 using Microsoft.WindowsAzure.Storage;
 using System;
-using System.IO;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace AzureFunction
