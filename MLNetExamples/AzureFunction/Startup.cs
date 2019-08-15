@@ -1,17 +1,15 @@
 ﻿using AzureFunction;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Hosting;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.ML;
 using Microsoft.WindowsAzure.Storage;
 using System;
-using System.IO;
 
-[assembly: WebJobsStartup(typeof(Startup))]
+[assembly: FunctionsStartup(typeof(Startup))]
 namespace AzureFunction
 {
-    class Startup : IWebJobsStartup
+    class Startup : FunctionsStartup
     {
-        public void Configure(IWebJobsBuilder builder)
+        public override void Configure(IFunctionsHostBuilder builder)
         {
             var connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage", EnvironmentVariableTarget.Process);
 
@@ -21,11 +19,11 @@ namespace AzureFunction
 
             var container = client.GetContainerReference("models");
 
-            var model = container.GetBlockBlobReference("salary-model.zip");
+            var model = container.GetBlockBlobReference("housing-model.zip");
 
             var uri = model.Uri.AbsoluteUri;
 
-            builder.Services.AddPredictionEnginePool<SalaryData, SalaryPrediction>()
+            builder.Services.AddPredictionEnginePool<HousingData, HousingPrediction>()
                 .FromUri(uri);
         }
     }
