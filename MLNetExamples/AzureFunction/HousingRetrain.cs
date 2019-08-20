@@ -53,7 +53,7 @@ namespace AzureFunction
             var dataPrepModel = context.Model.Load(pipelineFilePath, out pipelineSchema);
 
             var originalModelParams =
-                ((ISingleFeaturePredictionTransformer<object>)trainerModel).Model as LinearModelParameters;
+                ((ISingleFeaturePredictionTransformer<object>)trainerModel).Model as PoissonRegressionModelParameters;
 
             // Read and parse blob data
             using (var reader = new StreamReader(myBlob))
