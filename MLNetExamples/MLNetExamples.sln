@@ -23,9 +23,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomTransform", "CustomTr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnomalyDetection", "AnomalyDetection\AnomalyDetection.csproj", "{79EF0E80-5948-4687-B1BE-60DB6B2A938C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpRegression", "FSharpRegression\FSharpRegression.fsproj", "{8AB18BB8-D05A-499C-B869-24C491AC1446}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharpRegression", "FSharpRegression\FSharpRegression.fsproj", "{8AB18BB8-D05A-499C-B869-24C491AC1446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLoader", "DatabaseLoader\DatabaseLoader.csproj", "{A8D75A41-B139-43D1-AEE3-538D6540DDB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseLoader", "DatabaseLoader\DatabaseLoader.csproj", "{A8D75A41-B139-43D1-AEE3-538D6540DDB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction", "AzureFunction\AzureFunction.csproj", "{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureImportance", "FeatureImportance\FeatureImportance.csproj", "{D8DF42E5-501B-458F-9289-813875217AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{A8D75A41-B139-43D1-AEE3-538D6540DDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D75A41-B139-43D1-AEE3-538D6540DDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D75A41-B139-43D1-AEE3-538D6540DDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DF42E5-501B-458F-9289-813875217AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DF42E5-501B-458F-9289-813875217AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DF42E5-501B-458F-9289-813875217AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DF42E5-501B-458F-9289-813875217AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
