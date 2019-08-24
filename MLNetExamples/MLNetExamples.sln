@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseLoader", "DatabaseL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction", "AzureFunction\AzureFunction.csproj", "{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureImportance", "FeatureImportance\FeatureImportance.csproj", "{D8DF42E5-501B-458F-9289-813875217AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureImportance", "FeatureImportance\FeatureImportance.csproj", "{D8DF42E5-501B-458F-9289-813875217AD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectAndShuffle", "SelectAndShuffle\SelectAndShuffle.csproj", "{414D7AD9-C9F9-4485-AC5B-15FB8BDF416B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{D8DF42E5-501B-458F-9289-813875217AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8DF42E5-501B-458F-9289-813875217AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8DF42E5-501B-458F-9289-813875217AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414D7AD9-C9F9-4485-AC5B-15FB8BDF416B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414D7AD9-C9F9-4485-AC5B-15FB8BDF416B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414D7AD9-C9F9-4485-AC5B-15FB8BDF416B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414D7AD9-C9F9-4485-AC5B-15FB8BDF416B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
