@@ -12,10 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="book.jpg">
+    <None Update="images\book.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="cup.jpg">
+    <None Update="images\cup.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\cup2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="labels.csv">
@@ -27,7 +30,7 @@
     <None Update="model\tensorflow_inception_graph.pb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="sunflower.jpg">
+    <None Update="images\sunflower.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
