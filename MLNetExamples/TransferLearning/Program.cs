@@ -47,7 +47,7 @@ namespace TransferLearning
 
             // Log loss should be close to 0 for accurate predictions
             Console.WriteLine($"Log Loss - {metrics.LogLoss}");
-            Console.WriteLine($"Per class Log Loss - {String.Join(',', metrics.PerClassLogLoss.Select(l => l.ToString())}");
+            Console.WriteLine($"Per class Log Loss - {String.Join(',', metrics.PerClassLogLoss.Select(l => l.ToString()))}");
 
             // Predict batch
             Console.WriteLine("\n------------Batch predictions-----------------");
