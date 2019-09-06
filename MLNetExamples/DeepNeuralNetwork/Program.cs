@@ -74,9 +74,7 @@ namespace DeepNeuralNetwork
 
                 var labelIndex = prediction.PredictedLabel;
 
-                Console.WriteLine($"Image : [{Path.GetFileName(image.ImagePath)}], " +
-                  $"Score : {prediction.Score.Max()}, " +
-                  $"Predicted Label : {originalLabels[labelIndex]}");
+                Console.WriteLine($"Image : {Path.GetFileName(image.ImagePath)}, Score : {prediction.Score.Max()}, Predicted Label : {originalLabels[labelIndex]}");
             }
 
             Console.ReadLine();
