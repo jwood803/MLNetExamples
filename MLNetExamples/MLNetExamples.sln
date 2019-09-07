@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryData", "BinaryData\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepNeuralNetwork", "DeepNeuralNetwork\DeepNeuralNetwork.csproj", "{E3C43DBF-9441-426E-A2BC-6CB687EE53DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetrainModel", "RetrainModel\RetrainModel.csproj", "{631C855B-4006-428E-BD65-5719E3F7B6AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{E3C43DBF-9441-426E-A2BC-6CB687EE53DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3C43DBF-9441-426E-A2BC-6CB687EE53DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3C43DBF-9441-426E-A2BC-6CB687EE53DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631C855B-4006-428E-BD65-5719E3F7B6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631C855B-4006-428E-BD65-5719E3F7B6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631C855B-4006-428E-BD65-5719E3F7B6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631C855B-4006-428E-BD65-5719E3F7B6AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

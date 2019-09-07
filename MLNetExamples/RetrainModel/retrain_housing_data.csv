@@ -1,0 +1,5 @@
+longitude,latitude,housing_median_age,total_rooms,total_bedrooms,population,households,median_income,median_house_value,ocean_proximity
+-122.29,37.73,8.0,4004.0,2281.0,1300.0,55.0,4.4,110500,INLAND
+-120.72,35.33,11.0,1602.0,838.0,148.0,991.0,2.433,88320,NEAR BAY
+-121.99,36.42,33.0,258.0,77.0,2100.0,279.0,2.69,92310,<1H OCEAN
+-119.88,38.1,18.0,4911.0,211.0,1721.0,375.0,5.111,202700,NEAR OCEAN
