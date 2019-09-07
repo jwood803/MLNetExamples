@@ -13,7 +13,7 @@ namespace RetrainModel
         static async Task Main(string[] args)
         {
             string blobData;
-            var connectionString = "DefaultEndpointsProtocol=https;AccountName=databricksdemostorage;AccountKey=dZfyG1orvYTc39JP+P20N4KNZlxraci7fHf04Q3OACmty8mIsM+B/YNalUDdf26FuBTQ8Ycvisw5e+fWYES45w==;BlobEndpoint=https://databricksdemostorage.blob.core.windows.net/;QueueEndpoint=https://databricksdemostorage.queue.core.windows.net/;TableEndpoint=https://databricksdemostorage.table.core.windows.net/;FileEndpoint=https://databricksdemostorage.file.core.windows.net/;";
+            var connectionString = "";
 
             string trainerFilePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "models/housing-trainer.zip");
             string pipelineFilePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "models/housing-data-prep.zip");
