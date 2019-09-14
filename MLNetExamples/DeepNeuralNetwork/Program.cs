@@ -77,6 +77,8 @@ namespace DeepNeuralNetwork
                 Console.WriteLine($"Image : {Path.GetFileName(image.ImagePath)}, Score : {prediction.Score.Max()}, Predicted Label : {originalLabels[labelIndex]}");
             }
 
+            context.Model.Save(model, imageData.Schema, "./dnn_model.zip");
+
             Console.ReadLine();
         }
     }
