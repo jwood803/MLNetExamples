@@ -41,7 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepNeuralNetwork", "DeepNe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetrainModel", "RetrainModel\RetrainModel.csproj", "{631C855B-4006-428E-BD65-5719E3F7B6AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictDNN", "PredictDNN\PredictDNN.csproj", "{F60DFF16-1B8E-46F4-8A65-4E1EA6620236}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictDNN", "PredictDNN\PredictDNN.csproj", "{F60DFF16-1B8E-46F4-8A65-4E1EA6620236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubPredict", "EventHubPredict\EventHubPredict.csproj", "{20EB30DF-8526-4EAC-ACC3-A5A120096277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenization", "Tokenization\Tokenization.csproj", "{B6CD685F-5D72-414F-9114-D0E114352D12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +133,14 @@ Global
 		{F60DFF16-1B8E-46F4-8A65-4E1EA6620236}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F60DFF16-1B8E-46F4-8A65-4E1EA6620236}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F60DFF16-1B8E-46F4-8A65-4E1EA6620236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20EB30DF-8526-4EAC-ACC3-A5A120096277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EB30DF-8526-4EAC-ACC3-A5A120096277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EB30DF-8526-4EAC-ACC3-A5A120096277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EB30DF-8526-4EAC-ACC3-A5A120096277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6CD685F-5D72-414F-9114-D0E114352D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6CD685F-5D72-414F-9114-D0E114352D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6CD685F-5D72-414F-9114-D0E114352D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6CD685F-5D72-414F-9114-D0E114352D12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
