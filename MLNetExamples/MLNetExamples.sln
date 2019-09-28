@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubPredict", "EventHub
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenization", "Tokenization\Tokenization.csproj", "{B6CD685F-5D72-414F-9114-D0E114352D12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StopWords", "StopWords\StopWords.csproj", "{279A0E4A-BEF9-4C33-B77F-B1B5F64E71E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleData", "ScaleData\ScaleData.csproj", "{9FA23AF0-76DF-404F-B8AC-2A6EDE3C409D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +145,14 @@ Global
 		{B6CD685F-5D72-414F-9114-D0E114352D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6CD685F-5D72-414F-9114-D0E114352D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6CD685F-5D72-414F-9114-D0E114352D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279A0E4A-BEF9-4C33-B77F-B1B5F64E71E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279A0E4A-BEF9-4C33-B77F-B1B5F64E71E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279A0E4A-BEF9-4C33-B77F-B1B5F64E71E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279A0E4A-BEF9-4C33-B77F-B1B5F64E71E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA23AF0-76DF-404F-B8AC-2A6EDE3C409D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA23AF0-76DF-404F-B8AC-2A6EDE3C409D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA23AF0-76DF-404F-B8AC-2A6EDE3C409D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA23AF0-76DF-404F-B8AC-2A6EDE3C409D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
