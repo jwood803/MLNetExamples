@@ -16,7 +16,7 @@ namespace CustomVisionOnnx
 
         private static readonly (float x, float y)[] boxAnchors = { (0.573f, 0.677f), (1.87f, 2.06f), (3.34f, 5.47f), (7.88f, 3.53f), (9.77f, 9.17f) };
 
-        private static string[] testFiles = new[] { "./test/red-test.jpg", "./test/white.jpg", "./test/red-and-white.jpg" };
+        private static string[] testFiles = new[] { "./test/red-test.jpg", "./test/white.jpg" };
 
         static void Main(string[] args)
         {
