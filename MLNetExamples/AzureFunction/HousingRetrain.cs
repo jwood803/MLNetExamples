@@ -73,11 +73,11 @@ namespace AzureFunction
                     HousingMedianAge = float.Parse(row[2]),
                     TotalRooms = float.Parse(row[3]),
                     TotalBedrooms = float.Parse(row[4]),
-                    Population = float.Parse(row[4]),
-                    Households = float.Parse(row[5]),
-                    MedianIncome = float.Parse(row[6]),
-                    MedianHouseValue = float.Parse(row[7]),
-                    OceanProximity = row[8]
+                    Population = float.Parse(row[5]),
+                    Households = float.Parse(row[6]),
+                    MedianIncome = float.Parse(row[7]),
+                    MedianHouseValue = float.Parse(row[8]),
+                    OceanProximity = row[9]
                 });
 
             // Load new data and build new model based off original parameters
