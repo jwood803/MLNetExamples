@@ -55,9 +55,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentimentAnalysis", "Sentim
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomVisionOnnx", "CustomVisionOnnx\CustomVisionOnnx.csproj", "{07B51045-6105-4E0B-BC67-AF406150440D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ranking", "Ranking\Ranking.csproj", "{C538A31B-FD7B-43FC-8C40-2AFA88038F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ranking", "Ranking\Ranking.csproj", "{C538A31B-FD7B-43FC-8C40-2AFA88038F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleRegressionUpdate", "SimpleRegressionUpdate\SimpleRegressionUpdate.csproj", "{2847380D-0F2C-4B20-8DDB-F823857C332E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRegressionUpdate", "SimpleRegressionUpdate\SimpleRegressionUpdate.csproj", "{2847380D-0F2C-4B20-8DDB-F823857C332E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullValues", "NullValues\NullValues.csproj", "{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +179,10 @@ Global
 		{2847380D-0F2C-4B20-8DDB-F823857C332E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2847380D-0F2C-4B20-8DDB-F823857C332E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2847380D-0F2C-4B20-8DDB-F823857C332E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
