@@ -59,9 +59,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ranking", "Ranking\Ranking.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRegressionUpdate", "SimpleRegressionUpdate\SimpleRegressionUpdate.csproj", "{2847380D-0F2C-4B20-8DDB-F823857C332E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullValues", "NullValues\NullValues.csproj", "{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullValues", "NullValues\NullValues.csproj", "{EDF8C4B8-2D79-40E3-9C7E-6C977A8A11B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTransform", "ExpressionTransform\ExpressionTransform.csproj", "{9F8D9373-5B86-4FDE-B56E-B733BF17ACF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpressionTransform", "ExpressionTransform\ExpressionTransform.csproj", "{9F8D9373-5B86-4FDE-B56E-B733BF17ACF4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSeriesForecast", "TimeSeriesForecast\TimeSeriesForecast.csproj", "{57ACDE4A-0D9E-4CDE-85CF-6C3DF099C5FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictionBot", "PredictionBot\PredictionBot.csproj", "{75B2A561-8103-4E1D-B3F2-107F4EF4656A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,6 +193,14 @@ Global
 		{9F8D9373-5B86-4FDE-B56E-B733BF17ACF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F8D9373-5B86-4FDE-B56E-B733BF17ACF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F8D9373-5B86-4FDE-B56E-B733BF17ACF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57ACDE4A-0D9E-4CDE-85CF-6C3DF099C5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57ACDE4A-0D9E-4CDE-85CF-6C3DF099C5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57ACDE4A-0D9E-4CDE-85CF-6C3DF099C5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57ACDE4A-0D9E-4CDE-85CF-6C3DF099C5FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B2A561-8103-4E1D-B3F2-107F4EF4656A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B2A561-8103-4E1D-B3F2-107F4EF4656A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B2A561-8103-4E1D-B3F2-107F4EF4656A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B2A561-8103-4E1D-B3F2-107F4EF4656A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
