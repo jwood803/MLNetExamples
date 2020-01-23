@@ -39,10 +39,10 @@ namespace PredictionBot
 
             services.AddSingleton<UserState>();
 
-            services.AddSingleton<WinePredictionDialog>();
+            services.AddSingleton<HousingPredictionDialog>();
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
-            services.AddTransient<IBot, WineBot<WinePredictionDialog>>();
+            services.AddTransient<IBot, HousingBot<HousingPredictionDialog>>();
 
             services.AddPredictionEnginePool<HousingData, HousingPrediction>()
                 .FromFile("./MLModel/housing-model.zip", watchForChanges: false);
