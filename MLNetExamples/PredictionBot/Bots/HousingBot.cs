@@ -17,6 +17,7 @@ namespace PredictionBot.Bots
         protected readonly Dialog Dialog;
         protected readonly BotState ConversationState;
         protected readonly BotState UserState;
+        protected readonly PredictionEnginePool<HousingData, HousingPrediction> PredictionEnginePool;
 
         public HousingBot(ConversationState conversationState, UserState userState, T dialog, 
             PredictionEnginePool<HousingData, HousingPrediction> predictionEnginePool)
@@ -24,6 +25,7 @@ namespace PredictionBot.Bots
             Dialog = dialog;
             ConversationState = conversationState;
             UserState = userState;
+            PredictionEnginePool = predictionEnginePool;
         }
 
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
@@ -37,6 +39,11 @@ namespace PredictionBot.Bots
 
             await ConversationState.SaveChangesAsync(turnContext, force: false, cancellationToken);
             await UserState.SaveChangesAsync(turnContext, force: false, cancellationToken);
+        }
+
+        protected override Task OnEndOfConversationActivityAsync(ITurnContext<IEndOfConversationActivity> turnContext, CancellationToken cancellationToken)
+        {
+            return base.OnEndOfConversationActivityAsync(turnContext, cancellationToken);
         }
     }
 }
