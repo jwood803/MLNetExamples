@@ -1,6 +1,8 @@
 ﻿using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Choices;
 using Microsoft.Extensions.ML;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,20 +22,27 @@ namespace PredictionBot.Dialogs
             var steps = new WaterfallStep[]
             {
                 LatitudeStepAsync,
+                LongitudeStepAsync,
+                HousingMedianAgeStepAsync,
+                TotalRoomsStepAsync,
+                TotalBedroomsStepAsync,
+                PopulationStepAsync,
+                HouseholdsStepAsync,
+                MedianIncomeStepAsync,
+                OceanProximityStepAsync,
                 FinishDialogAsync
             };
 
             AddDialog(new WaterfallDialog(nameof(WaterfallDialog), steps));
             AddDialog(new ChoicePrompt(nameof(ChoicePrompt)));
-            AddDialog(new TextPrompt(nameof(TextPrompt)));
-            AddDialog(new NumberPrompt<int>(nameof(NumberPrompt<int>)));
+            AddDialog(new NumberPrompt<float>(nameof(NumberPrompt<float>)));
 
             InitialDialogId = nameof(WaterfallDialog);
         }
 
         private static async Task<DialogTurnResult> LatitudeStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
                 Prompt = MessageFactory.Text("What is the latitude?")
             });
@@ -45,7 +54,7 @@ namespace PredictionBot.Dialogs
 
             var userProfile = await _houseStateAccessor.GetAsync(stepContext.Context, () => new HousingState(), cancellationToken);
 
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
                 Prompt = MessageFactory.Text("What is the longitude?")
             });
@@ -55,7 +64,7 @@ namespace PredictionBot.Dialogs
         {
             stepContext.Values["Longitude"] = stepContext.Result;
 
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
                 Prompt = MessageFactory.Text("What is the housing median age?")
             });
@@ -65,7 +74,7 @@ namespace PredictionBot.Dialogs
         {
             stepContext.Values["MedianAge"] = stepContext.Result;
 
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
                 Prompt = MessageFactory.Text("What is the number of total rooms?")
             });
@@ -75,7 +84,7 @@ namespace PredictionBot.Dialogs
         {
             stepContext.Values["TotalRooms"] = stepContext.Result;
 
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
                 Prompt = MessageFactory.Text("What is the number of total bedrooms?")
             });
@@ -85,7 +94,7 @@ namespace PredictionBot.Dialogs
         {
             stepContext.Values["TotalBedrooms"] = stepContext.Result;
 
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
                 Prompt = MessageFactory.Text("What is the population of the area?")
             });
@@ -95,28 +104,55 @@ namespace PredictionBot.Dialogs
         {
             stepContext.Values["Population"] = stepContext.Result;
 
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {
-                Prompt = MessageFactory.Text("What is the number of total bedrooms?")
+                Prompt = MessageFactory.Text("What is the number of households?")
+            });
+        }
+
+        private static async Task<DialogTurnResult> MedianIncomeStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            stepContext.Values["Households"] = stepContext.Result;
+
+            return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
+            {
+                Prompt = MessageFactory.Text("What is the median income of the area?")
+            });
+        }
+
+        private static async Task<DialogTurnResult> OceanProximityStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            stepContext.Values["MedianIncome"] = stepContext.Result;
+
+            return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions
+            { 
+                Prompt = MessageFactory.Text("What is the ocean proximity?"),
+                Choices = ChoiceFactory.ToChoices(new List<string> { "NEAR BAY", "<1H OCEAN", "INLAND", "NEAR OCEAN", "ISLAND" }),
             });
         }
 
         private async Task<DialogTurnResult> FinishDialogAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
+            stepContext.Values["OceanProximity"] = stepContext.Result;
+
+            var stepValues = stepContext.Values;
+
             var housingData = new HousingData
             {
-                Longitude = -122.25f,
-                Latitude = 37.85f,
-                HousingMedianAge = 55.0f,
-                TotalRooms = 1627.0f,
-                TotalBedrooms = 235.0f,
-                Population = 322.0f,
-                Households = 120.0f,
-                MedianIncome = 8.3014f,
-                OceanProximity = "NEAR BAY"
+                Longitude = float.Parse(stepValues["Longitude"].ToString()),
+                Latitude = float.Parse(stepValues["Latitude"].ToString()),
+                HousingMedianAge = float.Parse(stepValues["MedianAge"].ToString()),
+                TotalRooms = float.Parse(stepValues["TotalRooms"].ToString()),
+                TotalBedrooms = float.Parse(stepValues["TotalBedrooms"].ToString()),
+                Population = float.Parse(stepValues["Population"].ToString()),
+                Households = float.Parse(stepValues["Households"].ToString()),
+                MedianIncome = float.Parse(stepValues["MedianIncome"].ToString()),
+                OceanProximity = ((FoundChoice)stepValues["OceanProximity"]).Value
             };
 
             var prediction = _predictionEnginePool.Predict(housingData);
+
+            await stepContext.Context.SendActivityAsync($"House value prediction is {prediction.PredictedHouseValue.ToString("C")}");
 
             return await stepContext.EndDialogAsync(stepContext.Values, cancellationToken: cancellationToken);
         }
