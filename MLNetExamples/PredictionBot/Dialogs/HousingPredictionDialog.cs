@@ -10,13 +10,11 @@ namespace PredictionBot.Dialogs
 {
     public class HousingPredictionDialog : ComponentDialog
     {
-        private readonly IStatePropertyAccessor<HousingState> _houseStateAccessor;
         private readonly PredictionEnginePool<HousingData, HousingPrediction> _predictionEnginePool;
 
         public HousingPredictionDialog(UserState userState, PredictionEnginePool<HousingData, HousingPrediction> predictionEnginePool) 
             : base(nameof(HousingPredictionDialog))
         {
-            _houseStateAccessor = userState.CreateProperty<HousingState>("HouseState");
             _predictionEnginePool = predictionEnginePool;
 
             var steps = new WaterfallStep[]
@@ -51,8 +49,6 @@ namespace PredictionBot.Dialogs
         private async Task<DialogTurnResult> LongitudeStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             stepContext.Values["Latitude"] = stepContext.Result;
-
-            var userProfile = await _houseStateAccessor.GetAsync(stepContext.Context, () => new HousingState(), cancellationToken);
 
             return await stepContext.PromptAsync(nameof(NumberPrompt<float>), new PromptOptions
             {

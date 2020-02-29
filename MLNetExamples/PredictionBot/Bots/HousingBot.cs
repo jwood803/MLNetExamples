@@ -17,15 +17,12 @@ namespace PredictionBot.Bots
         protected readonly Dialog Dialog;
         protected readonly BotState ConversationState;
         protected readonly BotState UserState;
-        protected readonly PredictionEnginePool<HousingData, HousingPrediction> PredictionEnginePool;
 
-        public HousingBot(ConversationState conversationState, UserState userState, T dialog, 
-            PredictionEnginePool<HousingData, HousingPrediction> predictionEnginePool)
+        public HousingBot(ConversationState conversationState, UserState userState, T dialog)
         {
             Dialog = dialog;
             ConversationState = conversationState;
             UserState = userState;
-            PredictionEnginePool = predictionEnginePool;
         }
 
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
