@@ -12,9 +12,9 @@ namespace EventHubPredict
 {
     class Program
     {
-        private const string EventHubConnectionString = "Endpoint=sb://mlnetehn.servicebus.windows.net/;SharedAccessKeyName=Manage;SharedAccessKey=6OZXDj5GE1Z+yTc1fVlzogRQL/6YlmIKnoZwx5wZJOk=;EntityPath=mlneteh";
+        private const string EventHubConnectionString = "Event hub connection string";
         private const string EventHubName = "mlneteh ";
-        private const string blobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=databricksdemostorage;AccountKey=+z/ldXQTw4r4pWaEHFg8W+6Sl8AraGQzrN9w3XgRrWiM11PTOcuYjtLrrKBULVf4tTILfyklWxL8DoKilBBEYg==;BlobEndpoint=https://databricksdemostorage.blob.core.windows.net/;QueueEndpoint=https://databricksdemostorage.queue.core.windows.net/;TableEndpoint=https://databricksdemostorage.table.core.windows.net/;FileEndpoint=https://databricksdemostorage.file.core.windows.net/;";
+        private const string blobStorageConnectionString = "Blob storage connection string";
         private const string blobContainerName = "events";
 
         static async Task Main(string[] args)
