@@ -67,7 +67,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSeriesForecast", "TimeS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictionBot", "PredictionBot\PredictionBot.csproj", "{75B2A561-8103-4E1D-B3F2-107F4EF4656A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGrams", "NGrams\NGrams.csproj", "{F8F5D378-5EA1-470E-A8B1-4BC38B5E39F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGrams", "NGrams\NGrams.csproj", "{F8F5D378-5EA1-470E-A8B1-4BC38B5E39F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeFeatures", "LargeFeatures\LargeFeatures.csproj", "{45EBDB09-AF10-4E0D-B549-D78789408829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -207,6 +209,10 @@ Global
 		{F8F5D378-5EA1-470E-A8B1-4BC38B5E39F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8F5D378-5EA1-470E-A8B1-4BC38B5E39F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8F5D378-5EA1-470E-A8B1-4BC38B5E39F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45EBDB09-AF10-4E0D-B549-D78789408829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EBDB09-AF10-4E0D-B549-D78789408829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45EBDB09-AF10-4E0D-B549-D78789408829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45EBDB09-AF10-4E0D-B549-D78789408829}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
