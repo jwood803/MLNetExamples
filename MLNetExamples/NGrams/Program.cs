@@ -1,6 +1,5 @@
 ﻿using Microsoft.ML;
 using Microsoft.ML.Data;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +32,7 @@ namespace NGrams
             var fitData = nGramPipeline.Fit(dataView);
             var dataTransformed = fitData.Transform(dataView);
 
-            var predictionEngine = context.Model.CreatePredictionEngine<Input, Output>(fitData);
-
-            var firstPrediction = predictionEngine.Predict(data.First());
-
-            Console.WriteLine($"Number of features in first prediction - {firstPrediction.NGrams.Length}");
+            var preview = dataTransformed.Preview();
 
             VBuffer<ReadOnlyMemory<char>> slotNames = default;
             dataTransformed.Schema["NGrams"].GetSlotNames(ref slotNames);

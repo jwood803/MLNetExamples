@@ -13,6 +13,8 @@ namespace LargeFeatures
 
             var data = context.Data.LoadFromTextFile<SensorData>("./features.csv", hasHeader: false, separatorChar: ',');
 
+            //data.GetColumn
+
             var pipeline = context.Transforms.Conversion.MapValueToKey("Label", "Gas")
                 .Append(context.MulticlassClassification.Trainers.LbfgsMaximumEntropy());
 

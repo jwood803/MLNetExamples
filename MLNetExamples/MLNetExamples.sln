@@ -69,7 +69,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictionBot", "Prediction
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGrams", "NGrams\NGrams.csproj", "{F8F5D378-5EA1-470E-A8B1-4BC38B5E39F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeFeatures", "LargeFeatures\LargeFeatures.csproj", "{45EBDB09-AF10-4E0D-B549-D78789408829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeFeatures", "LargeFeatures\LargeFeatures.csproj", "{45EBDB09-AF10-4E0D-B549-D78789408829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordEmbeddings", "WordEmbeddings\WordEmbeddings.csproj", "{86725F9B-243C-4541-8C2E-72A3CA844C2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,10 @@ Global
 		{45EBDB09-AF10-4E0D-B549-D78789408829}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45EBDB09-AF10-4E0D-B549-D78789408829}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45EBDB09-AF10-4E0D-B549-D78789408829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86725F9B-243C-4541-8C2E-72A3CA844C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86725F9B-243C-4541-8C2E-72A3CA844C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86725F9B-243C-4541-8C2E-72A3CA844C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86725F9B-243C-4541-8C2E-72A3CA844C2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
