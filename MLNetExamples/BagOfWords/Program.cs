@@ -13,7 +13,7 @@ namespace BagOfWords
 
             var data = new List<Input>
             {
-                new Input { Text = "I really enjoy being in jazz band. And I really like it." }
+                new Input { Text = "I really enjoy programming in C#. And I really like it." }
             };
 
             var dataView = context.Data.LoadFromEnumerable(data);
@@ -50,7 +50,7 @@ namespace BagOfWords
                 Console.WriteLine();
             }
 
-            Console.Write("Features: ");
+            Console.Write("Word Counts: ");
             for (int i = 0; i < prediction.BagOfWords.Length; i++)
             {
                 Console.Write($"{prediction.BagOfWords[i]:F4}  ");
