@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModelExplainability\ModelExplainability.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="housing.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

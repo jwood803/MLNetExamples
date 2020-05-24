@@ -29,8 +29,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseLoader", "DatabaseL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction", "AzureFunction\AzureFunction.csproj", "{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureImportance", "FeatureImportance\FeatureImportance.csproj", "{D8DF42E5-501B-458F-9289-813875217AD4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferLearning", "TransferLearning\TransferLearning.csproj", "{2D89C1D7-23E1-42F2-BB22-5AAE1204B7D0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataPrepRowsColumns", "DataPrepRowsColumns\DataPrepRowsColumns.csproj", "{AB30E584-CBAA-439D-9549-045131689D95}"
@@ -75,7 +73,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordEmbeddings", "WordEmbed
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BagOfWords", "BagOfWords\BagOfWords.csproj", "{B69C2482-08C1-4B25-9DE5-746FDBC1637F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeText", "NormalizeText\NormalizeText.csproj", "{1AFF0034-FD5C-467C-83E6-45B0481C2466}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormalizeText", "NormalizeText\NormalizeText.csproj", "{1AFF0034-FD5C-467C-83E6-45B0481C2466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelExplainability", "ModelExplainability\ModelExplainability.csproj", "{653467EB-A4D2-4BDB-8D32-24D798DAFC89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,10 +135,6 @@ Global
 		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E54A183-8D61-4BA6-A6EA-BF24D55661DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8DF42E5-501B-458F-9289-813875217AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8DF42E5-501B-458F-9289-813875217AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8DF42E5-501B-458F-9289-813875217AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8DF42E5-501B-458F-9289-813875217AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2D89C1D7-23E1-42F2-BB22-5AAE1204B7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D89C1D7-23E1-42F2-BB22-5AAE1204B7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D89C1D7-23E1-42F2-BB22-5AAE1204B7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -231,6 +227,10 @@ Global
 		{1AFF0034-FD5C-467C-83E6-45B0481C2466}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AFF0034-FD5C-467C-83E6-45B0481C2466}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AFF0034-FD5C-467C-83E6-45B0481C2466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{653467EB-A4D2-4BDB-8D32-24D798DAFC89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653467EB-A4D2-4BDB-8D32-24D798DAFC89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653467EB-A4D2-4BDB-8D32-24D798DAFC89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653467EB-A4D2-4BDB-8D32-24D798DAFC89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
