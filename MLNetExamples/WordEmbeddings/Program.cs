@@ -21,9 +21,9 @@ namespace WordEmbeddings
 
             var predictionEngine = context.Model.CreatePredictionEngine<TextInput, TextFeatures>(embeddingTransformer);
 
-            var newData = new TextInput { Text = "No!" };
+            var dogData = new TextInput { Text = "Dog" };
 
-            var prediction = predictionEngine.Predict(newData);
+            var prediction = predictionEngine.Predict(dogData);
 
             Console.WriteLine($"Number of Features: {prediction.Features.Length}");
 
@@ -33,6 +33,22 @@ namespace WordEmbeddings
             {
                 Console.Write($"{feature:F4} ");
             }
+
+            Console.WriteLine(Environment.NewLine);
+
+            var catData = new TextInput { Text = "Cat" };
+
+            var catPrediction = predictionEngine.Predict(catData);
+
+            Console.WriteLine($"Number of Features: {catPrediction.Features.Length}");
+
+            // Print the embedding vector.
+            Console.WriteLine("Features: ");
+            foreach (var feature in catPrediction.Features)
+            {
+                Console.Write($"{feature:F4} ");
+            }
+
         }
     }
 }
