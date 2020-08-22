@@ -21,13 +21,28 @@ namespace SentimentAnalysis
 
             var prediction = predictionEngine.Predict(new SentimentData { Text = "I would buy MSFT shares." });
 
-            Console.WriteLine($"Prediction - {prediction.Prediction} with score - {prediction.Score}");
+            Console.WriteLine($"Prediction - {prediction.Prediction} with probability - {prediction.Probability}");
 
             var newPrediction = predictionEngine.Predict(new SentimentData { Text = "TWTR may close at a low today." });
 
-            Console.WriteLine($"Prediction - {newPrediction.Prediction} with score - {newPrediction.Score}");
+            Console.WriteLine($"Prediction - {newPrediction.Prediction} with probability - {newPrediction.Probability}");
 
-            Console.ReadLine();
+            var anotherPrediction = predictionEngine.Predict(new SentimentData { Text = "TSLA is at an all time high." });
+
+            switch (anotherPrediction.Probability)
+            {
+                case float p when p < .5:
+                    Console.WriteLine($"TSLA sentiment is negative with probability {p}");
+                    break;
+                case float p when p >= .5 && p <= .7:
+                    Console.WriteLine($"TSLA sentiment is neutral with probability {p}");
+                    break;
+                case float p when p > .7:
+                    Console.WriteLine($"TSLA sentiment is positive with probability {p}");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
