@@ -29,6 +29,7 @@ namespace DeepNeuralNetworkUpdate
             var testTrainData = context.Data.TrainTestSplit(imageDataShuffled, testFraction: 0.2);
 
             var validationData = context.Transforms.Conversion.MapValueToKey("LabelKey", "Label", keyOrdinality: Microsoft.ML.Transforms.ValueToKeyMappingEstimator.KeyOrdinality.ByValue)
+                .Append(context.Transforms.LoadRawImageBytes("Image", imagesFolder, "ImagePath"))
                 .Fit(testTrainData.TestSet)
                 .Transform(testTrainData.TestSet);
 
@@ -39,52 +40,51 @@ namespace DeepNeuralNetworkUpdate
                 BatchSize = 20,
                 LearningRate = 0.01f,
                 LabelColumnName = "LabelKey",
-                FeatureColumnName = "Images",
+                FeatureColumnName = "Image",
                 ValidationSet = validationData
             };
 
-            var pipeline = context.Transforms.Conversion.MapValueToKey("LabelKey", "Label", keyOrdinality: Microsoft.ML.Transforms.ValueToKeyMappingEstimator.KeyOrdinality.ByValue)
-                .Append(context.Transforms.LoadRawImageBytes("Images", imagesFolder, "ImagePath"))
-                .Append(context.MulticlassClassification.Trainers.ImageClassification(options));
+            var imagesPipeline = context.Transforms.Conversion.MapValueToKey("LabelKey", "Label", keyOrdinality: Microsoft.ML.Transforms.ValueToKeyMappingEstimator.KeyOrdinality.ByValue)
+                .Append(context.Transforms.LoadRawImageBytes("Image", imagesFolder, "ImagePath"));
 
-            var model = pipeline.Fit(testTrainData.TrainSet);
+            var imageDataModel = imagesPipeline.Fit(testTrainData.TrainSet);
 
-            var predicions = model.Transform(testTrainData.TestSet);
+            var imageDataView = imageDataModel.Transform(testTrainData.TrainSet);
 
-            var metrics = context.MulticlassClassification.Evaluate(predicions, labelColumnName: "LabelKey", predictedLabelColumnName: "PredictedLabel");
+            var pipeline = context.MulticlassClassification.Trainers.ImageClassification(options)
+                .Append(context.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine($"Log loss - {metrics.LogLoss}");
+            var model = pipeline.Fit(imageDataView);
 
-            var predictionEngine = context.Model.CreatePredictionEngine<ImageData, ImagePrediction>(model);
+            var predictionEngine = context.Model.CreatePredictionEngine<ImageModelInput, ImagePrediction>(model);
 
             var testImagesFolder = Path.Combine(Environment.CurrentDirectory, "..", "..", "..", "test");
 
             var testFiles = Directory.GetFiles(testImagesFolder, "*", SearchOption.AllDirectories);
 
-            var testImages = testFiles.Select(file => new ImageData
+            var testImages = testFiles.Select(file => new ImageModelInput
             {
                 ImagePath = file
             });
 
-            VBuffer<ReadOnlyMemory<char>> keys = default;
-            predictionEngine.OutputSchema["LabelKey"].GetKeyValues(ref keys);
-
-            var originalLabels = keys.DenseValues().ToArray();
-
             Console.WriteLine(Environment.NewLine);
 
-            foreach (var image in testImages)
-            {
-                var prediction = predictionEngine.Predict(image);
+            var testImagesData = context.Data.LoadFromEnumerable(testImages);
 
+            var testImageDataView = imagesPipeline.Fit(testImagesData).Transform(testImagesData);
+
+            var predictions = model.Transform(testImageDataView);
+
+            var testPredictions = context.Data.CreateEnumerable<ImagePrediction>(predictions, reuseRowObject: false);
+
+            foreach (var prediction in testPredictions)
+            {
                 var labelIndex = prediction.PredictedLabel;
 
-                Console.WriteLine($"Image : {Path.GetFileName(image.ImagePath)}, Score : {prediction.Score.Max()}, Predicted Label : {originalLabels[labelIndex]}");
+                Console.WriteLine($"Image: {Path.GetFileName(prediction.ImagePath)}, Predicted Label: {prediction.PredictedLabel}");
             }
 
             context.Model.Save(model, imageData.Schema, "./dnn_model.zip");
-
         }
     }
 }

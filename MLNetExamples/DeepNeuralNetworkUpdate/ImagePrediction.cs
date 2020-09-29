@@ -6,8 +6,10 @@ namespace DeepNeuralNetworkUpdate
 {
     public class ImagePrediction
     {
-        public float[] Score { get; set; }
+        public string ImagePath { get; set; }
 
-        public uint PredictedLabel { get; set; }
+        public string Label { get; set; }
+
+        public string PredictedLabel { get; set; }
     }
 }
