@@ -33,6 +33,13 @@ namespace DeepNeuralNetworkUpdate
                 .Fit(testTrainData.TestSet)
                 .Transform(testTrainData.TestSet);
 
+            var imagesPipeline = context.Transforms.Conversion.MapValueToKey("LabelKey", "Label", keyOrdinality: Microsoft.ML.Transforms.ValueToKeyMappingEstimator.KeyOrdinality.ByValue)
+                .Append(context.Transforms.LoadRawImageBytes("Image", imagesFolder, "ImagePath"));
+
+            var imageDataModel = imagesPipeline.Fit(testTrainData.TrainSet);
+
+            var imageDataView = imageDataModel.Transform(testTrainData.TrainSet);
+
             var options = new ImageClassificationTrainer.Options()
             {
                 Arch = ImageClassificationTrainer.Architecture.ResnetV250,
@@ -43,13 +50,6 @@ namespace DeepNeuralNetworkUpdate
                 FeatureColumnName = "Image",
                 ValidationSet = validationData
             };
-
-            var imagesPipeline = context.Transforms.Conversion.MapValueToKey("LabelKey", "Label", keyOrdinality: Microsoft.ML.Transforms.ValueToKeyMappingEstimator.KeyOrdinality.ByValue)
-                .Append(context.Transforms.LoadRawImageBytes("Image", imagesFolder, "ImagePath"));
-
-            var imageDataModel = imagesPipeline.Fit(testTrainData.TrainSet);
-
-            var imageDataView = imageDataModel.Transform(testTrainData.TrainSet);
 
             var pipeline = context.MulticlassClassification.Trainers.ImageClassification(options)
                 .Append(context.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
